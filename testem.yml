@@ -1,0 +1,11 @@
+framework: jasmine
+src_files:
+- hello.js
+- source/javascripts/lib/jquery-1.7.2.js
+- source/javascripts/lib/underscore.js
+- source/javascripts/lib/backbone.js
+- compiled/models.js
+- compiled/router.js
+- compiled/templates.js
+- compiled/views.js
+- spec/javascripts/*_spec.js

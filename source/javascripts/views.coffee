@@ -4,7 +4,7 @@ Views.articleView = Backbone.View.extend({
   tagName: 'div',
   className: 'articleView',
   render: ->
-    template = _.template(Templates.articleViewTemplate)
+    template = _.template(app.templates.articleViewTemplate)
     html = template(this.model.toJSON())
     $(this.tagName + '.' + this.className).html(html)
 })
@@ -18,7 +18,7 @@ Views.articleEditView = Backbone.View.extend({
   save: ->
     console.log('save called!')
   render: ->
-    template = _.template(Templates.articleEditTemplate)
+    template = _.template(app.templates.articleEditTemplate)
     html = template(this.model.toJSON())
     $(this.tagName + '.' + this.className).html(html)
 })
