@@ -4,24 +4,32 @@
       "help":           "help",     #help
       "home":           "home",     #home
       "edit":           "edit",     #edit
+      "new":           "new",     #new
       "search/:query":  "search",   #search/kiwis
     },
 
     welcome: ->
-      Views.articleView.render()
       console.log('Router: /')
+      app.views.articleView.render()
+
+    new: ->
+      console.log("Router: new")
+      app.views.articleView.model = new Models.Article()
+      app.views.articleView.edit()
 
     edit: ->
       console.log("Router: edit")
-      Views.articleEditView.render()
+      app.views.articleView.edit()
 
     help: ->
       console.log("Router: help")
-      Views.articleView.render()
+      app.views.articleView.model = app.articles.help
+      app.views.articleView.render()
 
     home: ->
       console.log("Router: home")
-      Views.articleView.render(Articles.home)
+      app.views.articleView.model = app.articles.home
+      app.views.articleView.render()
 
     search: (query)->
       console.log("hello from search")

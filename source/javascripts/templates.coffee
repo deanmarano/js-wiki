@@ -1,6 +1,6 @@
 window.Templates = {}
 Templates.templatesToLoad = [
-  { name: 'articleViewTemplate', url: 'http://localhost:4567/partials/article.html'},
+  { name: 'articleViewTemplate', url: 'http://localhost:4567/partials/articleViewTemplate.html'},
   { name: 'articleEditTemplate', url: 'http://localhost:4567/partials/articleEditTemplate.html'}
 ]
 

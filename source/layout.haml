@@ -8,6 +8,8 @@
     = javascript_include_tag 'lib/underscore'
     = javascript_include_tag 'lib/jquery-1.7.2'
     = javascript_include_tag 'lib/backbone'
+    = javascript_include_tag 'lib/Markdown.Converter'
+    = javascript_include_tag 'lib/Markdown.Sanitizer'
     = javascript_include_tag 'templates'
     = javascript_include_tag 'views'
     = javascript_include_tag 'models'
@@ -15,6 +17,11 @@
     = javascript_include_tag 'app'
     = yield_content :head
   %body
-    .header JS Wiki
+    .header
+      %h1 JS Wiki
+      .links
+        %a{:href => '#home'} home
+        %a{:href => '#help'} help
+        %a{:href => '#new'} create a new page
     #main
       =yield
