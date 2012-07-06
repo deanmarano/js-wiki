@@ -25,3 +25,16 @@
         %a{:href => '#new'} create a new page
     #main
       =yield
+    .templates
+      .articleEditTemplate
+        %input.title-input{:type => "text", :value => "{{title}}"}
+        %input.permalink-input{:type => "text", :value => "{{permalink}}"}
+        %textarea.body-input
+          {{body}}
+        .controls
+          %a.save Save
+          %a.cancel{:href => '#{{permalink}}'} Cancel
+      .articleViewTemplate
+        %h2.title {{title}}
+        .body {{body}}
+        %a.edit{:href => '#{{permalink}}/edit'} edit

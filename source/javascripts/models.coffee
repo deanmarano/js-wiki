@@ -8,4 +8,9 @@ window.Models.Article = Backbone.Model.extend({
     body: "If you'd like to create it, click here."
     tags: []
   }
+
+  ghetto_save:->
+    localStorage.setItem(
+      "model_#{@get('permalink')}"
+      JSON.stringify(@toJSON()))
 })

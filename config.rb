@@ -1,10 +1,4 @@
-before do
-  headers "Access-Control-Allow-Origin" => "*"
-end
-
 set :erb, :layout_engine => :haml
-page 'partials/articleViewTemplate.html', :layout => false
-page 'partials/articleEditTemplate.html', :layout => false
 ### 
 # Compass
 ###

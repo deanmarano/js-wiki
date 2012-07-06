@@ -1,14 +1,14 @@
   window.Router = Backbone.Router.extend
     routes: {
-      '': 'welcome',
-      ":query/edit": "edit",     #edit
-      "new": "new",     #new
-      ":query": "show_article",
+      '':             'welcome',
+      ":query/edit":  "edit",     #edit
+      "new":          "new",     #new
+      ":permalink":   "show_article"
     },
 
     welcome: ->
       console.log('Router: /')
-      app.views.articleView.render()
+      @show_article('home')
 
     new: ->
       console.log("Router: new")
@@ -25,10 +25,7 @@
       app.views.articleView.model = @find_article(permalink)
       app.views.articleView.render()
 
-      console.log("hello from search")
     find_article: (permalink)->
       article = localStorage.getItem("model_#{permalink}")
       articleHash = if article? then JSON.parse(article) else {permalink: permalink}
       articleModel = new Models.Article(articleHash)
-
-

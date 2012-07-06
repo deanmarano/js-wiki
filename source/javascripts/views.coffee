@@ -6,23 +6,21 @@ Views.articleView = Backbone.View.extend({
     'click a.save': 'save'
   }
   save: ->
-    @model.set('title', @$el.find('.titlebox').val())
-    @model.set('body', @$el.find('.editbox').val())
-    @model.set('permalink', @$el.find('.permalink').val())
-    localStorage.setItem("model_#{@model.get('permalink')}", JSON.stringify(@model))
+    _.each(['title', 'body', 'permalink'], (attribute)->
+      @model.set(attribute, @$el.find(".#{attribute}-input").val())
+    , @)
+    @model.ghetto_save()
     app.router.navigate(@model.get('permalink'), trigger: true)
 
   edit: ->
     @renderTemplate(app.templates.articleEditTemplate, @model.toJSON())
 
   renderTemplate: (template, data)->
-    templateFn = _.template(template)
-    html = templateFn(data)
+    html = _.template(template, data)
     @$el.html(html)
 
   render: ->
-    converter = Markdown.getSanitizingConverter()
     data = @model.toJSON()
-    data.body = converter.makeHtml(@model.get('body'))
+    data.body = Markdown.getSanitizingConverter().makeHtml(@model.get('body'))
     @renderTemplate(app.templates.articleViewTemplate, data)
 })
