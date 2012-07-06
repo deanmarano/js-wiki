@@ -6,22 +6,27 @@ $ ->
   window.app = {
     templates: {}
     router: new Router()
-    articles: {}
     views: {}
   }
 
-  app.articles.home = new Models.Article({
+  home = new Models.Article({
     title: "Welcome to JS Wiki!"
+    permalink: 'home'
     body: "This is the wiki I made."
   })
 
-  app.articles.help = new Models.Article({
+  localStorage.setItem("model_home", JSON.stringify(home.toJSON())) unless localStorage.getItem('model_home')?
+
+  help = new Models.Article({
     title: "Welcome to help page."
+    permalink: 'help'
     body: "Here is some useful help information."
   })
 
+  localStorage.setItem("model_help", JSON.stringify(help.toJSON())) unless localStorage.getItem('model_help')?
+
   app.views.articleView = new Views.articleView({
-    model: app.articles.home
+    model: home
     el: $('.articleView')
   })
 

@@ -8,7 +8,9 @@ Views.articleView = Backbone.View.extend({
   save: ->
     @model.set('title', @$el.find('.titlebox').val())
     @model.set('body', @$el.find('.editbox').val())
-    @render()
+    @model.set('permalink', @$el.find('.permalink').val())
+    localStorage.setItem("model_#{@model.get('permalink')}", JSON.stringify(@model))
+    app.router.navigate(@model.get('permalink'), trigger: true)
 
   edit: ->
     @renderTemplate(app.templates.articleEditTemplate, @model.toJSON())
@@ -20,9 +22,7 @@ Views.articleView = Backbone.View.extend({
 
   render: ->
     converter = Markdown.getSanitizingConverter()
-    data = {
-      title: @model.get('title')
-      body: converter.makeHtml(@model.get('body'))
-    }
+    data = @model.toJSON()
+    data.body = converter.makeHtml(@model.get('body'))
     @renderTemplate(app.templates.articleViewTemplate, data)
 })
