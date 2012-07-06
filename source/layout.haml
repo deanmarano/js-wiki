@@ -5,6 +5,8 @@
     %meta{:charset => 'utf-8'}
     = stylesheet_link_tag 'site'
     = stylesheet_link_tag 'main'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Norican'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Dosis'
     = javascript_include_tag 'lib/underscore'
     = javascript_include_tag 'lib/jquery-1.7.2'
     = javascript_include_tag 'lib/backbone'
@@ -15,26 +17,33 @@
     = javascript_include_tag 'models'
     = javascript_include_tag 'router'
     = javascript_include_tag 'app'
-    = yield_content :head
   %body
-    .header
-      %h1 JS Wiki
-      .links
+    %header
+      .page-title JS Wiki
+      %nav.links
         %a{:href => '#home'} home
         %a{:href => '#help'} help
         %a{:href => '#new'} create a new page
+      .clearfix
     #main
       =yield
     .templates
+
       .articleEditTemplate
-        %input.title-input{:type => "text", :value => "{{title}}"}
-        %input.permalink-input{:type => "text", :value => "{{permalink}}"}
-        %textarea.body-input
-          {{body}}
-        .controls
-          %a.save Save
-          %a.cancel{:href => '#{{permalink}}'} Cancel
+        .inputs
+          %label{:for => 'title'} Title
+          %input.title-input{:id => 'title', :type => "text", :value => "{{title}}"}
+          %label{:for => 'permalink'} Permalink
+          %input.permalink-input{:id => 'permalink', :type => "text", :value => "{{permalink}}"}
+          %textarea.body-input
+            {{body}}
+          .controls
+            %a.save Save
+            %a.cancel{:href => '#{{permalink}}'} Cancel
+          .preview
+
       .articleViewTemplate
-        %h2.title {{title}}
+        .title-bar
+          .title {{title}}
+          %a.edit{:href => '#{{permalink}}/edit'} edit
         .body {{body}}
-        %a.edit{:href => '#{{permalink}}/edit'} edit

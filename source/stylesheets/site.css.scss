@@ -20,13 +20,9 @@ $side-gutter-width: $gutter-width;
 
 body {
   font-family: $font-family;
-  color: $font-color; 
+  color: $font-color;
 }
 
 a {
   @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color);
-}
-
-#main {
-  padding: 50px;
 }

@@ -1,35 +1,98 @@
+@import "compass/utilities/general/clearfix"
+
+html
+  height: 100%
 body
+  font-family: Dosis
+  font-size: 20px
   margin-left: auto
   margin-right: auto
-  margin-top: 10px
-  width: 600px
+  max-width: 1000px
+  height: 100%
+  background-image: url(http://files.droplr.com/files/18404402/OM2j.Wood%20Tile@2x.png)
 
-.title-input, .permalink-input
-  width: 500px
+#main
+  margin: 10px
+  height: 100%
+
+//header stuff
+header
+  background-color: rgba(255, 255, 255, .6)
+  border-radius: 30px
+  padding: 10px
+  margin: 10px
+  @include clearfix
+
+.page-title
+  font-size: 80px
+  font-weight: bold
+  font-family: Norican
+  float: left
+  width: 275px
+
+nav.links
+  float: right
+  font-size: 26px
+  padding-top: 26px
+  a
+    text-decoration: none
+    color: black
+    padding-left: 20px
+  a:hover
+    text-decoration: underline
+
+// edit template
+.title-input, .permalink-input, .body-input
+  width: 100%
+  margin-bottom: 20px
+  border-radius: 15px
+  padding: 5px
+  background-color: rgba(255, 255, 255, 0.6)
+  font-size: 20px
+
+.title-input
+  font-size: 30px
 
 .body-input
-  width: 500px
-  height: 200px
+  border: none
+  border-style: inset
+  border-width: 1px
+  height: 100%
 
-.title
-  margin-bottom: 10px
+.inputs
+  height: 100%
+  width: 50%
 
-.links
-  float: right
+.title-bar
+  border-bottom: solid black 5px
+  margin-bottom: 20px
+  @include clearfix
+  .edit
+    float: right
+  .title
+    font-size: 52px
+    margin-bottom: 10px
+    float: left
 
 .templates
   display: none
 
-h1
-  font-size: 48px
-  font-weight: bold
 
-h2
-  font-size: 30px
-  font-weight: bold
+.articleView
+  height: 100%
+  margin-top: 30px
+  padding: 15px
+  background-color: rgba(255, 255, 255, .6)
+  border-radius: 20px
 
-h3
-  font-size: 19px
+.articleView .body
+  h1
+    font-size: 45px
+    font-weight: bold
 
-h4
-  font-size: 12px
+  h2
+    font-size: 35px
+    font-weight: bold
+
+  h3
+    font-size: 27px
