@@ -2,7 +2,6 @@ window.Models = {}
 
 window.Models.Article = Backbone.Model.extend({
   defaults: {
-    id: null
     permalink: null
     title: "Whoops! This page doesn't exist yet."
     body: "If you'd like to create it, click here."
@@ -10,7 +9,8 @@ window.Models.Article = Backbone.Model.extend({
   }
 
   ghetto_save:->
+    return unless @get('permalink')?
     localStorage.setItem(
-      "model_#{@get('permalink')}"
+      "article_#{@get('permalink')}"
       JSON.stringify(@toJSON()))
 })

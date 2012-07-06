@@ -16,7 +16,8 @@ createDefaultArticles = (app)->
   ]
 
   _.each articles, (article)->
-    article.ghetto_save() unless app.router.find_article(article.get('permalink'))?
+    unless localStorage.getItem("article_#{article.get('permalink')}")?
+      article.ghetto_save()
 
 createViews = ->
   articleView: new Views.articleView
@@ -31,5 +32,4 @@ $ ->
     views: createViews()
 
   createDefaultArticles(app)
-
   Backbone.history.start()

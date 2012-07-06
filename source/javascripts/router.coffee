@@ -26,6 +26,6 @@
       app.views.articleView.render()
 
     find_article: (permalink)->
-      article = localStorage.getItem("model_#{permalink}")
+      article = localStorage.getItem("article_#{permalink}")
       articleHash = if article? then JSON.parse(article) else {permalink: permalink}
       articleModel = new Models.Article(articleHash)
