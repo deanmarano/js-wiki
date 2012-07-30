@@ -1,7 +1,8 @@
 underscoreDefaults = ->
-  _.templateSettings = {
-    interpolate: /\{\{(.+?)\}\}/g
-  }
+  _.templateSettings = interpolate: /\{\{(.+?)\}\}/g
+  Backbone.Model.get = (attr)->
+    return @virtualAttributes[attr].call() if @virtualAttributes[attr]
+    return @attributes[attr]
 
 createDefaultArticles = (app)->
   articles = [

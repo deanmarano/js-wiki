@@ -26,7 +26,7 @@
         %a{:href => '#new'} create a new page
       .clearfix
     #main
-      =yield
+      .articleView
     .templates
 
       .articleEditTemplate
@@ -40,10 +40,15 @@
           .controls
             %a.save Save
             %a.cancel{:href => '#{{permalink}}'} Cancel
-          .preview
+        .preview
+          .title-bar
+            .title {{title}}
+            .body
+              {{bodyHTML}}
+        .clearfix
 
       .articleViewTemplate
         .title-bar
           .title {{title}}
           %a.edit{:href => '#{{permalink}}/edit'} edit
-        .body {{body}}
+        .body {{bodyHTML}}

@@ -8,6 +8,14 @@ window.Models.Article = Backbone.Model.extend({
     tags: []
   }
 
+  bodyHTML: ->
+    Markdown.getSanitizingConverter().makeHtml(@get('body'))
+
+  getTemplateData: ->
+    data = @toJSON()
+    data.bodyHTML = @bodyHTML()
+    data
+
   ghetto_save:->
     return unless @get('permalink')?
     localStorage.setItem(
