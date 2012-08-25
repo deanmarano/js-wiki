@@ -24,6 +24,7 @@
         %a{:href => '#home'} home
         %a{:href => '#help'} help
         %a{:href => '#new'} create a new page
+        %a{:href => '#pages'} pages
       .clearfix
     #main
       .articleView
@@ -52,3 +53,6 @@
           .title {{title}}
           %a.edit{:href => '#{{permalink}}/edit'} edit
         .body {{bodyHTML}}
+      .articlePreviewTemplate
+        %a.edit{:href => '#{{permalink}}'} {{title}}
+        %br

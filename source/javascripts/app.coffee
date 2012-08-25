@@ -16,12 +16,15 @@ createDefaultArticles = (app)->
       body: "Here is some useful help information."
   ]
 
+  localStorage.articles_list = [] unless localStorage.getItem("articles_list")?
   _.each articles, (article)->
     unless localStorage.getItem("article_#{article.get('permalink')}")?
       article.ghetto_save()
 
 createViews = ->
   articleView: new Views.articleView
+    el: $('.articleView')
+  pagesView: new Views.pagesView
     el: $('.articleView')
 
 $ ->

@@ -18,7 +18,29 @@ window.Models.Article = Backbone.Model.extend({
 
   ghetto_save:->
     return unless @get('permalink')?
-    localStorage.setItem(
-      "article_#{@get('permalink')}"
-      JSON.stringify(@toJSON()))
+    ArticleCollection.save(@)
 })
+
+window.ArticleCollection = Backbone.Collection.extend {},
+  model: Models.Article
+  find: (permalink)->
+    article = localStorage.getItem("article_#{permalink}")
+    articleHash = if article? then JSON.parse(article) else {permalink: permalink}
+    new Models.Article(articleHash)
+
+  save: (model)->
+    @push(model.get('permalink'))
+    localStorage.setItem(
+      "article_#{model.get('permalink')}"
+      JSON.stringify(model.toJSON()))
+
+  push: (permalink)->
+    articleList = JSON.parse(localStorage.articleList || '[]')
+    unless _.include articleList, permalink
+      articleList.push permalink
+      localStorage.articleList = JSON.stringify articleList
+
+  articles: ->
+    articleList = JSON.parse(localStorage.articleList || '[]')
+    _.map articleList, (permalink)->
+      ArticleCollection.find(permalink)
