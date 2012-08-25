@@ -1,5 +1,7 @@
 #JS-Wiki
 
+Demo: http://atom.deanoftech.com/js-wiki
+
 Dave Hoover said everyone should write a wiki with their own flavor.
 Since I'm really excited about Javascript, I wanted to write a wiki
 entirely in Javascript. The setup is a little strange to allow me to
