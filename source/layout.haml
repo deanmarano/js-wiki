@@ -30,7 +30,6 @@
       .articleView
       Sorry! Unfortunately your browser doesn't support localStorage. Please upgrade to a more modern browser (Safari, Chrome, Firefox).
     .templates
-
       .articleEditTemplate
         .inputs
           %label{:for => 'title'} Title
@@ -40,7 +39,7 @@
           %textarea.body-input
             {{body}}
           .controls
-            %a.save Save
+            %a.save.btn Save
             %a.cancel{:href => '#{{permalink}}'} Cancel
         .preview
           .title-bar

@@ -40,6 +40,14 @@ window.ArticleCollection = Backbone.Collection.extend {},
       articleList.push permalink
       localStorage.articleList = JSON.stringify articleList
 
+  import: (articles)->
+    _.each articles, (article)->
+      new Models.Article(article)
+
+  export: ->
+    _.map ArticleCollection.articles(), (a)->
+      a.toJSON()
+
   articles: ->
     articleList = JSON.parse(localStorage.articleList || '[]')
     _.map articleList, (permalink)->

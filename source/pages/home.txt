@@ -1,0 +1,25 @@
+This is the wiki I made after reading Apprenticeship Patterns. It uses
+many of my current favorite technologies:
+
+* HTML5
+* HAML
+* Coffeescript
+* SASS
+* Markdown
+
+All articles are stored in HTML localStorage, so it only persists in the
+current browser. Since I'm looking to implement in all client-side JS, I'm
+still figuring out the best way to persist. If you have any ideas, tweet me!
+
+# How To Use
+To use this wiki, you'll need to know Markdown. You can find more
+info on [DaringFireball.com](http://daringfireball.net/projects/markdown/syntax).
+The main navigation is through the 'pages'
+link. You can create pages and they will show up here. Linking between
+pages are simply Markdown links to the permalinks. A link that says 'this' to the 
+help page, for example, would look like `[this](#help)`.
+
+Everything here is a page you can edit. The home page, the help page, and any
+page you create. Simply click the edit link in the top right corner of every
+page to start editing. There is a live preview, which will show you exactly what
+the markdown will look like once rendered.

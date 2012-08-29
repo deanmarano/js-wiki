@@ -1,7 +1,7 @@
   window.Router = Backbone.Router.extend
     routes: {
       '':             'index',
-      ":query/edit":  "edit",     #edit
+      ":permalink/edit":  "edit",     #edit
       "new":          "new",     #new
       "pages":   "pages"
       ":permalink":   "show_article"
